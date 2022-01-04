@@ -60,3 +60,18 @@ body {
         height: 200px;
         width: 200px;
 }
+
+.x::after{
+    content : 'x';
+    font-size: 200px;
+}
+
+.o::after{
+    content: 'o';
+    font-size : 200px;
+}
+
+.won{
+    background: #bd1414
+
+}
