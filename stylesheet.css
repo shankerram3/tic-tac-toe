@@ -11,6 +11,15 @@ html{
     box-sizing: border-box;
 }
 
+@media all and (max-width :300px){
+
+.container{
+    width: 500px;
+}
+.grid{
+    width : 500px;
+}
+}
 body {
     color: #545454;
     display: flex;
@@ -21,7 +30,7 @@ body {
     text-align: center;
 }
 .container{
-      background: #14bdac;
+      background: #707e7c;
       margin: 50px;
       padding: 50px;    
       border-radius: 25px;
@@ -44,7 +53,7 @@ body {
 
 .grid{
     display: grid;
-    background: #0DA192;
+    background: #1f2b29;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 15px;
@@ -52,7 +61,7 @@ body {
 }
 
 .grid-cell {
-        background: #14BDAC;
+        background: #707e7c;
         display: flex;
         justify-content: center;
         align-items: center;
