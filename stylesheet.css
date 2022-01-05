@@ -11,15 +11,7 @@ html{
     box-sizing: border-box;
 }
 
-@media all and (max-width :300px){
 
-.container{
-    width: 500px;
-}
-.grid{
-    width : 500px;
-}
-}
 body {
     color: #545454;
     display: flex;
@@ -35,6 +27,8 @@ body {
       padding: 50px;    
       border-radius: 25px;
       justify-content: center;
+      width: 500px;
+      height: fit-content;
         }
       
 .buttons{
@@ -51,6 +45,11 @@ body {
     color: #F2EBD3;
 }
 
+#close{
+    font-size: larger;
+    color: #3bd8be;
+}
+
 .grid{
     display: grid;
     background: #1f2b29;
@@ -58,6 +57,7 @@ body {
     grid-template-rows: repeat(3, 1fr);
     grid-gap: 15px;
     margin-top: 50px;
+    height: 500px;
 }
 
 .grid-cell {
@@ -66,21 +66,64 @@ body {
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        height: 200px;
-        width: 200px;
+        height: auto;
+        width: auto;
 }
 
 .x::after{
     content : 'x';
-    font-size: 200px;
+    font-size: 500%;
 }
 
 .o::after{
     content: 'o';
-    font-size : 200px;
+    font-size: 500%;
 }
 
 .won{
     background: #bd1414
 
 }
+.modal-container{
+    background-color: rgba(0,0,0,0.5);
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    height: 100vh;
+    width : 100vw
+}
+
+.modal{
+    background-color: #fff;
+    padding :30px 50px;
+    border-radius:  5px;
+    width: 600px;
+    max-width: 100%;
+    text-align: center;
+    font
+}
+.show {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+@media all and (max-width :500px){
+
+    .container{
+        width: 300px;
+        height: fit-content;
+    }
+    .grid{
+        height: 300px;
+    }
+    .grid-cell{
+        height: auto;
+        width: auto;
+    }
+    }

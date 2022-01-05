@@ -1,8 +1,9 @@
 // HTML Elements
 const statusDiv = document.querySelector('.status');
-const resetDiv = document.querySelector('.reset');
+const resetDiv = document.querySelectorAll('.reset');
 const cellDivs = document.querySelectorAll('.grid-cell');
-
+const modalcont =document.querySelector('.modal-container');
+const close = document.getElementById('close');
 
 //game variables
 let gameisLive = true ;
@@ -12,6 +13,7 @@ let xIsNext = true;
 //functions
 
 const handleWin =(cell) =>{
+  modalcont.classList.add('show');
     
 }
 
@@ -80,6 +82,7 @@ const handleReset = (e) => {
     cellDiv.classList.remove('x');
     cellDiv.classList.remove('o');
     cellDiv.classList.remove('won');
+    modalcont.classList.remove('show')
   }
 
 };
@@ -87,21 +90,21 @@ const handleReset = (e) => {
 const handleCellClick = (e) => {
     const classList = e.target.classList;
     const location = e.target.classList[1];
-if (classList[2] === 'x' || classList === 'o'){
+if (classList[2] === 'x' || classList[2] === 'o'){ //mistake was here
     return;
 }
 
     if(xIsNext){
         classList.add('x');
-        xIsNext = !xIsNext;
-        statusDiv.innerHTML = "X is next";
+        xIsNext = false;
+        statusDiv.innerHTML = "o is next";
         updateGameStatus();
       }
-      else{
+      else if(xIsNext ==  false){
               
           classList.add('o');
-          xIsNext = !xIsNext;
-          statusDiv.innerHTML = "o is next";
+          xIsNext = true;
+          statusDiv.innerHTML = "X is next";
           updateGameStatus();
       }
   
@@ -109,7 +112,8 @@ if (classList[2] === 'x' || classList === 'o'){
   
   
   //event listeners
-  resetDiv.addEventListener('click', handleReset);
+  for(const resetDivs of resetDiv)
+  resetDivs.addEventListener('click', handleReset);
   
   
   for (const cellDiv of cellDivs){
